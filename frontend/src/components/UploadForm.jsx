@@ -38,7 +38,7 @@ const UploadForm = ({ setResults }) => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(res);
+      // console.log(res.data.data);
       setResults(res.data);
     } catch (err) {
       console.error(err);

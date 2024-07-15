@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <h1>OCR Image Upload</h1>
       <UploadForm setResults={setResults} />
-      <Results results={results} />
+      <Results results={results.newImage} />
     </div>
   );
 };
