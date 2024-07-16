@@ -1,17 +1,23 @@
-// frontend/src/App.jsx
 import React, { useState } from 'react';
 import UploadForm from './components/UploadForm';
 import Results from './components/Results';
-import './App.css';
+import './style.css';
 
 const App = () => {
   const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="App">
       <h1>OCR Image Upload</h1>
-      <UploadForm setResults={setResults} />
-      <Results results={results.newImage} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <UploadForm setResults={setResults} setLoading={setLoading} />
+          <Results results={results?.newImage} />
+        </>
+      )}
     </div>
   );
 };

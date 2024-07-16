@@ -1,12 +1,12 @@
-// frontend/src/components/Results.jsx
 import React from 'react';
+import '../style.css'
+
 
 const Results = ({ results }) => {
-  console.log({results});
   return (
     <div>
       {results && (
-        <div>
+        <div className="results">
           <h2>OCR Results</h2>
           <p>{results.result}</p>
           <img src={`http://localhost:5000/${results.imagePath}`} alt="Uploaded" />
@@ -16,5 +16,6 @@ const Results = ({ results }) => {
     </div>
   );
 };
+
 
 export default Results;

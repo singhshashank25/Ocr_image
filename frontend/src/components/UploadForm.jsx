@@ -1,8 +1,8 @@
-// frontend/src/components/UploadForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../style.css'
 
-const UploadForm = ({ setResults }) => {
+const UploadForm = ({ setResults, setLoading }) => {
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
   const [error, setError] = useState('');
@@ -33,16 +33,18 @@ const UploadForm = ({ setResults }) => {
     formData.append('text', text);
 
     try {
+      setLoading(true);
       const res = await axios.post('http://localhost:5000/api/images/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      // console.log(res.data.data);
       setResults(res.data);
     } catch (err) {
       console.error(err);
       setError('Error uploading image.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,7 +53,7 @@ const UploadForm = ({ setResults }) => {
       <input type="file" onChange={handleImageChange} accept="image/*" required />
       <input type="text" value={text} onChange={handleTextChange} placeholder="Enter some text" required />
       <button type="submit">Upload</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
     </form>
   );
 };
