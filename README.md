@@ -3,6 +3,10 @@
 This project demonstrates a basic MERN (MongoDB, Express, React, Node.js) stack application that allows users to upload images, input text, and perform OCR (Optical Character Recognition) on the uploaded images. The OCR results, along with the additional text, are stored in a MongoDB database and displayed on the frontend.
 
 ## Table of Contents
+ - [youtube_vide](https://www.youtube.com/watch?v=xaKCka-2uwE&ab_channel=ShashankSingh)
+
+
+## Table of Contents
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
